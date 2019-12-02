@@ -1,0 +1,11 @@
+C:\Users\ASUSROGUSER\source\repos\e-learningAPI\coneccion\bin\Release\coneccion.dll.config
+C:\Users\ASUSROGUSER\source\repos\e-learningAPI\coneccion\bin\Release\coneccion.dll
+C:\Users\ASUSROGUSER\source\repos\e-learningAPI\coneccion\bin\Release\coneccion.pdb
+C:\Users\ASUSROGUSER\source\repos\e-learningAPI\coneccion\bin\Release\EntityFramework.dll
+C:\Users\ASUSROGUSER\source\repos\e-learningAPI\coneccion\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\ASUSROGUSER\source\repos\e-learningAPI\coneccion\bin\Release\EntityFramework.xml
+C:\Users\ASUSROGUSER\source\repos\e-learningAPI\coneccion\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\ASUSROGUSER\source\repos\e-learningAPI\coneccion\obj\Release\coneccion.csprojAssemblyReference.cache
+C:\Users\ASUSROGUSER\source\repos\e-learningAPI\coneccion\obj\Release\coneccion.csproj.CopyComplete
+C:\Users\ASUSROGUSER\source\repos\e-learningAPI\coneccion\obj\Release\coneccion.dll
+C:\Users\ASUSROGUSER\source\repos\e-learningAPI\coneccion\obj\Release\coneccion.pdb

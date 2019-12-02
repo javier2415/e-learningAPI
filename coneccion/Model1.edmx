@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ConfigRespuestas">
+          <Key>
+            <PropertyRef Name="iIdConfigRespuesta" />
+          </Key>
+          <Property Name="iIdConfigRespuesta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="iIdPregunta" Type="int" />
+          <Property Name="lEsCorrecta" Type="bit" />
+        </EntityType>
+        <EntityType Name="Cursos">
+          <Key>
+            <PropertyRef Name="iIdCurso" />
+          </Key>
+          <Property Name="iIdCurso" Type="int" Nullable="false" />
+          <Property Name="cNombreCurso" Type="varchar(max)" />
+          <Property Name="iCalificacionAprob" Type="int" />
+        </EntityType>
+        <EntityType Name="Lecciones">
+          <Key>
+            <PropertyRef Name="iIdLeccion" />
+          </Key>
+          <Property Name="iIdLeccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cNombreLeccion" Type="varchar(max)" />
+          <Property Name="iCalificacionAprob" Type="int" />
+        </EntityType>
+        <EntityType Name="preguntas">
+          <Key>
+            <PropertyRef Name="iIdPregunta" />
+          </Key>
+          <Property Name="iIdPregunta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cPregunta" Type="varchar(max)" />
+          <Property Name="iIdLeccion" Type="int" />
+          <Property Name="lAplicanTodas" Type="bit" />
+          <Property Name="iPuntaje" Type="int" />
+        </EntityType>
+        <EntityType Name="Rel_usuario_cursos">
+          <Key>
+            <PropertyRef Name="iIdRelUsuarioCurso" />
+          </Key>
+          <Property Name="iIdRelUsuarioCurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="iIdUsuario" Type="int" />
+          <Property Name="iIdCurso" Type="int" />
+        </EntityType>
+        <EntityType Name="RelCursoLeccion">
+          <Key>
+            <PropertyRef Name="iIdRelCursoLeccion" />
+          </Key>
+          <Property Name="iIdRelCursoLeccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="iIdCurso" Type="int" Nullable="false" />
+          <Property Name="iIdLeccion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RespuestasAlumnos">
+          <Key>
+            <PropertyRef Name="iIdRespAlumno" />
+          </Key>
+          <Property Name="iIdRespAlumno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="iIdCurso" Type="int" />
+          <Property Name="iIdLeccion" Type="int" />
+          <Property Name="iIdAlumno" Type="int" />
+          <Property Name="iIdPregunta" Type="int" />
+          <Property Name="iIdConfigRespuesta" Type="int" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="ConfigRespuestas" EntityType="Self.ConfigRespuestas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cursos" EntityType="Self.Cursos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lecciones" EntityType="Self.Lecciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="preguntas" EntityType="Self.preguntas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rel_usuario_cursos" EntityType="Self.Rel_usuario_cursos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RelCursoLeccion" EntityType="Self.RelCursoLeccion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RespuestasAlumnos" EntityType="Self.RespuestasAlumnos" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Curso">
+          <Key>
+            <PropertyRef Name="iIdCurso" />
+          </Key>
+          <Property Name="iIdCurso" Type="Int32" Nullable="false" />
+          <Property Name="cNombreCurso" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="iCalificacionAprob" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Leccione">
+          <Key>
+            <PropertyRef Name="iIdLeccion" />
+          </Key>
+          <Property Name="iIdLeccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cNombreLeccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="iCalificacionAprob" Type="Int32" />
+        </EntityType>
+        <EntityType Name="RelCursoLeccion">
+          <Key>
+            <PropertyRef Name="iIdRelCursoLeccion" />
+          </Key>
+          <Property Name="iIdRelCursoLeccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="iIdCurso" Type="Int32" Nullable="false" />
+          <Property Name="iIdLeccion" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cursos" EntityType="Self.Curso" />
+          <EntitySet Name="Lecciones" EntityType="Self.Leccione" />
+          <EntitySet Name="RelCursoLeccions" EntityType="Self.RelCursoLeccion" />
+          <EntitySet Name="ConfigRespuestas" EntityType="Model.ConfigRespuesta" />
+          <EntitySet Name="preguntas" EntityType="Model.pregunta" />
+          <EntitySet Name="Rel_usuario_cursos" EntityType="Model.Rel_usuario_cursos" />
+          <EntitySet Name="RespuestasAlumnos" EntityType="Model.RespuestasAlumno" />
+        </EntityContainer>
+        <EntityType Name="ConfigRespuesta">
+          <Key>
+            <PropertyRef Name="iIdConfigRespuesta" />
+          </Key>
+          <Property Name="iIdConfigRespuesta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="iIdPregunta" Type="Int32" />
+          <Property Name="lEsCorrecta" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="pregunta">
+          <Key>
+            <PropertyRef Name="iIdPregunta" />
+          </Key>
+          <Property Name="iIdPregunta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cPregunta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="iIdLeccion" Type="Int32" />
+          <Property Name="lAplicanTodas" Type="Boolean" />
+          <Property Name="iPuntaje" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Rel_usuario_cursos">
+          <Key>
+            <PropertyRef Name="iIdRelUsuarioCurso" />
+          </Key>
+          <Property Name="iIdRelUsuarioCurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="iIdUsuario" Type="Int32" />
+          <Property Name="iIdCurso" Type="Int32" />
+        </EntityType>
+        <EntityType Name="RespuestasAlumno">
+          <Key>
+            <PropertyRef Name="iIdRespAlumno" />
+          </Key>
+          <Property Name="iIdRespAlumno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="iIdCurso" Type="Int32" />
+          <Property Name="iIdLeccion" Type="Int32" />
+          <Property Name="iIdAlumno" Type="Int32" />
+          <Property Name="iIdPregunta" Type="Int32" />
+          <Property Name="iIdConfigRespuesta" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Cursos">
+            <EntityTypeMapping TypeName="Model.Curso">
+              <MappingFragment StoreEntitySet="Cursos">
+                <ScalarProperty Name="iIdCurso" ColumnName="iIdCurso" />
+                <ScalarProperty Name="cNombreCurso" ColumnName="cNombreCurso" />
+                <ScalarProperty Name="iCalificacionAprob" ColumnName="iCalificacionAprob" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lecciones">
+            <EntityTypeMapping TypeName="Model.Leccione">
+              <MappingFragment StoreEntitySet="Lecciones">
+                <ScalarProperty Name="iIdLeccion" ColumnName="iIdLeccion" />
+                <ScalarProperty Name="cNombreLeccion" ColumnName="cNombreLeccion" />
+                <ScalarProperty Name="iCalificacionAprob" ColumnName="iCalificacionAprob" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RelCursoLeccions">
+            <EntityTypeMapping TypeName="Model.RelCursoLeccion">
+              <MappingFragment StoreEntitySet="RelCursoLeccion">
+                <ScalarProperty Name="iIdRelCursoLeccion" ColumnName="iIdRelCursoLeccion" />
+                <ScalarProperty Name="iIdCurso" ColumnName="iIdCurso" />
+                <ScalarProperty Name="iIdLeccion" ColumnName="iIdLeccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConfigRespuestas">
+            <EntityTypeMapping TypeName="Model.ConfigRespuesta">
+              <MappingFragment StoreEntitySet="ConfigRespuestas">
+                <ScalarProperty Name="lEsCorrecta" ColumnName="lEsCorrecta" />
+                <ScalarProperty Name="iIdPregunta" ColumnName="iIdPregunta" />
+                <ScalarProperty Name="iIdConfigRespuesta" ColumnName="iIdConfigRespuesta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="preguntas">
+            <EntityTypeMapping TypeName="Model.pregunta">
+              <MappingFragment StoreEntitySet="preguntas">
+                <ScalarProperty Name="iPuntaje" ColumnName="iPuntaje" />
+                <ScalarProperty Name="lAplicanTodas" ColumnName="lAplicanTodas" />
+                <ScalarProperty Name="iIdLeccion" ColumnName="iIdLeccion" />
+                <ScalarProperty Name="cPregunta" ColumnName="cPregunta" />
+                <ScalarProperty Name="iIdPregunta" ColumnName="iIdPregunta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rel_usuario_cursos">
+            <EntityTypeMapping TypeName="Model.Rel_usuario_cursos">
+              <MappingFragment StoreEntitySet="Rel_usuario_cursos">
+                <ScalarProperty Name="iIdCurso" ColumnName="iIdCurso" />
+                <ScalarProperty Name="iIdUsuario" ColumnName="iIdUsuario" />
+                <ScalarProperty Name="iIdRelUsuarioCurso" ColumnName="iIdRelUsuarioCurso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RespuestasAlumnos">
+            <EntityTypeMapping TypeName="Model.RespuestasAlumno">
+              <MappingFragment StoreEntitySet="RespuestasAlumnos">
+                <ScalarProperty Name="iIdConfigRespuesta" ColumnName="iIdConfigRespuesta" />
+                <ScalarProperty Name="iIdPregunta" ColumnName="iIdPregunta" />
+                <ScalarProperty Name="iIdAlumno" ColumnName="iIdAlumno" />
+                <ScalarProperty Name="iIdLeccion" ColumnName="iIdLeccion" />
+                <ScalarProperty Name="iIdCurso" ColumnName="iIdCurso" />
+                <ScalarProperty Name="iIdRespAlumno" ColumnName="iIdRespAlumno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

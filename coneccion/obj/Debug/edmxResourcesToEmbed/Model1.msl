@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Cursos">
+      <EntityTypeMapping TypeName="Model.Curso">
+        <MappingFragment StoreEntitySet="Cursos">
+          <ScalarProperty Name="iIdCurso" ColumnName="iIdCurso" />
+          <ScalarProperty Name="cNombreCurso" ColumnName="cNombreCurso" />
+          <ScalarProperty Name="iCalificacionAprob" ColumnName="iCalificacionAprob" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lecciones">
+      <EntityTypeMapping TypeName="Model.Leccione">
+        <MappingFragment StoreEntitySet="Lecciones">
+          <ScalarProperty Name="iIdLeccion" ColumnName="iIdLeccion" />
+          <ScalarProperty Name="cNombreLeccion" ColumnName="cNombreLeccion" />
+          <ScalarProperty Name="iCalificacionAprob" ColumnName="iCalificacionAprob" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RelCursoLeccions">
+      <EntityTypeMapping TypeName="Model.RelCursoLeccion">
+        <MappingFragment StoreEntitySet="RelCursoLeccion">
+          <ScalarProperty Name="iIdRelCursoLeccion" ColumnName="iIdRelCursoLeccion" />
+          <ScalarProperty Name="iIdCurso" ColumnName="iIdCurso" />
+          <ScalarProperty Name="iIdLeccion" ColumnName="iIdLeccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfigRespuestas">
+      <EntityTypeMapping TypeName="Model.ConfigRespuesta">
+        <MappingFragment StoreEntitySet="ConfigRespuestas">
+          <ScalarProperty Name="lEsCorrecta" ColumnName="lEsCorrecta" />
+          <ScalarProperty Name="iIdPregunta" ColumnName="iIdPregunta" />
+          <ScalarProperty Name="iIdConfigRespuesta" ColumnName="iIdConfigRespuesta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="preguntas">
+      <EntityTypeMapping TypeName="Model.pregunta">
+        <MappingFragment StoreEntitySet="preguntas">
+          <ScalarProperty Name="iPuntaje" ColumnName="iPuntaje" />
+          <ScalarProperty Name="lAplicanTodas" ColumnName="lAplicanTodas" />
+          <ScalarProperty Name="iIdLeccion" ColumnName="iIdLeccion" />
+          <ScalarProperty Name="cPregunta" ColumnName="cPregunta" />
+          <ScalarProperty Name="iIdPregunta" ColumnName="iIdPregunta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rel_usuario_cursos">
+      <EntityTypeMapping TypeName="Model.Rel_usuario_cursos">
+        <MappingFragment StoreEntitySet="Rel_usuario_cursos">
+          <ScalarProperty Name="iIdCurso" ColumnName="iIdCurso" />
+          <ScalarProperty Name="iIdUsuario" ColumnName="iIdUsuario" />
+          <ScalarProperty Name="iIdRelUsuarioCurso" ColumnName="iIdRelUsuarioCurso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RespuestasAlumnos">
+      <EntityTypeMapping TypeName="Model.RespuestasAlumno">
+        <MappingFragment StoreEntitySet="RespuestasAlumnos">
+          <ScalarProperty Name="iIdConfigRespuesta" ColumnName="iIdConfigRespuesta" />
+          <ScalarProperty Name="iIdPregunta" ColumnName="iIdPregunta" />
+          <ScalarProperty Name="iIdAlumno" ColumnName="iIdAlumno" />
+          <ScalarProperty Name="iIdLeccion" ColumnName="iIdLeccion" />
+          <ScalarProperty Name="iIdCurso" ColumnName="iIdCurso" />
+          <ScalarProperty Name="iIdRespAlumno" ColumnName="iIdRespAlumno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

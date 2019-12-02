@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Curso">
+    <Key>
+      <PropertyRef Name="iIdCurso" />
+    </Key>
+    <Property Name="iIdCurso" Type="Int32" Nullable="false" />
+    <Property Name="cNombreCurso" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="iCalificacionAprob" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Leccione">
+    <Key>
+      <PropertyRef Name="iIdLeccion" />
+    </Key>
+    <Property Name="iIdLeccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cNombreLeccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="iCalificacionAprob" Type="Int32" />
+  </EntityType>
+  <EntityType Name="RelCursoLeccion">
+    <Key>
+      <PropertyRef Name="iIdRelCursoLeccion" />
+    </Key>
+    <Property Name="iIdRelCursoLeccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="iIdCurso" Type="Int32" Nullable="false" />
+    <Property Name="iIdLeccion" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cursos" EntityType="Self.Curso" />
+    <EntitySet Name="Lecciones" EntityType="Self.Leccione" />
+    <EntitySet Name="RelCursoLeccions" EntityType="Self.RelCursoLeccion" />
+    <EntitySet Name="ConfigRespuestas" EntityType="Model.ConfigRespuesta" />
+    <EntitySet Name="preguntas" EntityType="Model.pregunta" />
+    <EntitySet Name="Rel_usuario_cursos" EntityType="Model.Rel_usuario_cursos" />
+    <EntitySet Name="RespuestasAlumnos" EntityType="Model.RespuestasAlumno" />
+  </EntityContainer>
+  <EntityType Name="ConfigRespuesta">
+    <Key>
+      <PropertyRef Name="iIdConfigRespuesta" />
+    </Key>
+    <Property Name="iIdConfigRespuesta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="iIdPregunta" Type="Int32" />
+    <Property Name="lEsCorrecta" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="pregunta">
+    <Key>
+      <PropertyRef Name="iIdPregunta" />
+    </Key>
+    <Property Name="iIdPregunta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cPregunta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="iIdLeccion" Type="Int32" />
+    <Property Name="lAplicanTodas" Type="Boolean" />
+    <Property Name="iPuntaje" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Rel_usuario_cursos">
+    <Key>
+      <PropertyRef Name="iIdRelUsuarioCurso" />
+    </Key>
+    <Property Name="iIdRelUsuarioCurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="iIdUsuario" Type="Int32" />
+    <Property Name="iIdCurso" Type="Int32" />
+  </EntityType>
+  <EntityType Name="RespuestasAlumno">
+    <Key>
+      <PropertyRef Name="iIdRespAlumno" />
+    </Key>
+    <Property Name="iIdRespAlumno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="iIdCurso" Type="Int32" />
+    <Property Name="iIdLeccion" Type="Int32" />
+    <Property Name="iIdAlumno" Type="Int32" />
+    <Property Name="iIdPregunta" Type="Int32" />
+    <Property Name="iIdConfigRespuesta" Type="Int32" />
+  </EntityType>
+</Schema>

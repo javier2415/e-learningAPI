@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Cursos">
+      <EntityTypeMapping TypeName="Model.Curso">
+        <MappingFragment StoreEntitySet="Cursos">
+          <ScalarProperty Name="iIdCurso" ColumnName="iIdCurso" />
+          <ScalarProperty Name="cNombreCurso" ColumnName="cNombreCurso" />
+          <ScalarProperty Name="iCalificacionAprob" ColumnName="iCalificacionAprob" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lecciones">
+      <EntityTypeMapping TypeName="Model.Leccione">
+        <MappingFragment StoreEntitySet="Lecciones">
+          <ScalarProperty Name="iIdLeccion" ColumnName="iIdLeccion" />
+          <ScalarProperty Name="cNombreLeccion" ColumnName="cNombreLeccion" />
+          <ScalarProperty Name="iCalificacionAprob" ColumnName="iCalificacionAprob" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RelCursoLeccions">
+      <EntityTypeMapping TypeName="Model.RelCursoLeccion">
+        <MappingFragment StoreEntitySet="RelCursoLeccion">
+          <ScalarProperty Name="iIdRelCursoLeccion" ColumnName="iIdRelCursoLeccion" />
+          <ScalarProperty Name="iIdCurso" ColumnName="iIdCurso" />
+          <ScalarProperty Name="iIdLeccion" ColumnName="iIdLeccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

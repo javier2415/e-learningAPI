@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ConfigRespuestas">
+    <Key>
+      <PropertyRef Name="iIdConfigRespuesta" />
+    </Key>
+    <Property Name="iIdConfigRespuesta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="iIdPregunta" Type="int" />
+    <Property Name="lEsCorrecta" Type="bit" />
+  </EntityType>
+  <EntityType Name="Cursos">
+    <Key>
+      <PropertyRef Name="iIdCurso" />
+    </Key>
+    <Property Name="iIdCurso" Type="int" Nullable="false" />
+    <Property Name="cNombreCurso" Type="varchar(max)" />
+    <Property Name="iCalificacionAprob" Type="int" />
+  </EntityType>
+  <EntityType Name="Lecciones">
+    <Key>
+      <PropertyRef Name="iIdLeccion" />
+    </Key>
+    <Property Name="iIdLeccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cNombreLeccion" Type="varchar(max)" />
+    <Property Name="iCalificacionAprob" Type="int" />
+  </EntityType>
+  <EntityType Name="preguntas">
+    <Key>
+      <PropertyRef Name="iIdPregunta" />
+    </Key>
+    <Property Name="iIdPregunta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cPregunta" Type="varchar(max)" />
+    <Property Name="iIdLeccion" Type="int" />
+    <Property Name="lAplicanTodas" Type="bit" />
+    <Property Name="iPuntaje" Type="int" />
+  </EntityType>
+  <EntityType Name="Rel_usuario_cursos">
+    <Key>
+      <PropertyRef Name="iIdRelUsuarioCurso" />
+    </Key>
+    <Property Name="iIdRelUsuarioCurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="iIdUsuario" Type="int" />
+    <Property Name="iIdCurso" Type="int" />
+  </EntityType>
+  <EntityType Name="RelCursoLeccion">
+    <Key>
+      <PropertyRef Name="iIdRelCursoLeccion" />
+    </Key>
+    <Property Name="iIdRelCursoLeccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="iIdCurso" Type="int" Nullable="false" />
+    <Property Name="iIdLeccion" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RespuestasAlumnos">
+    <Key>
+      <PropertyRef Name="iIdRespAlumno" />
+    </Key>
+    <Property Name="iIdRespAlumno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="iIdCurso" Type="int" />
+    <Property Name="iIdLeccion" Type="int" />
+    <Property Name="iIdAlumno" Type="int" />
+    <Property Name="iIdPregunta" Type="int" />
+    <Property Name="iIdConfigRespuesta" Type="int" />
+  </EntityType>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="ConfigRespuestas" EntityType="Self.ConfigRespuestas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cursos" EntityType="Self.Cursos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lecciones" EntityType="Self.Lecciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="preguntas" EntityType="Self.preguntas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rel_usuario_cursos" EntityType="Self.Rel_usuario_cursos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RelCursoLeccion" EntityType="Self.RelCursoLeccion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RespuestasAlumnos" EntityType="Self.RespuestasAlumnos" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

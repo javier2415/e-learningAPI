@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblCursoes" EntityType="Model.tblCurso" />
+  </EntityContainer>
+  <EntityType Name="tblCurso">
+    <Key>
+      <PropertyRef Name="iIdCurso" />
+    </Key>
+    <Property Name="iIdCurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cNombreCurso" Type="String" Nullable="false" />
+    <Property Name="iAprobCurso" Type="String" Nullable="false" />
+  </EntityType>
+</Schema>
