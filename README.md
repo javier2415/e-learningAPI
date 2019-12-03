@@ -76,3 +76,47 @@ ESTRUCTURA JSON QUE RECIBE EL METODO:
                 }
               ]
             }
+
+
+# EJERCICIO 2
+
+_se creo un metodo para generar toda lo logica que se solicitaba en el ejercicio 2, para ahorrar tiempo en la creacion de otro proyecto_
+
+## Comenzando 🚀
+
+_se ejecuta igual que la api anterior,es un metodo que recibe los siguientes datos:
+{
+  "cantidadPruebas": 4,
+  "lstTamanosMatriz": [
+{
+      "$id": "1",
+      "N":1,
+      "M":1
+    },
+    {
+      "$id": "2",
+      "N":2,
+      "M":2
+    },
+    {
+      "$id": "3",
+      "N":3,
+      "M":1
+    }
+,
+    {
+      "$id": "4",
+      "N":3,
+      "M":3
+    }
+  ]
+}
+_
+
+_RETORNA UNA LISTA CON LAS POSICIONES SEGUN EL ORDEN COMO SE ENVIAN LAS PRUEBAS PARA ESTE CASO POR EJEMPLO:_
+{
+R
+L
+D
+R
+}
